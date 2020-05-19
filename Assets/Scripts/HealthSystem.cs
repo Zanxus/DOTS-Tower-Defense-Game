@@ -1,6 +1,8 @@
-﻿
+﻿using System;
 public class HealthSystem
 {
+    public event EventHandler OnHealthChanged;
+
     int health;
     int maxHealth;
 
@@ -27,6 +29,7 @@ public class HealthSystem
         {
             health = 0;
         }
+        OnHealthChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public void Heal(int healAmount)
@@ -36,6 +39,7 @@ public class HealthSystem
         {
             health = maxHealth;
         }
+        OnHealthChanged?.Invoke(this, EventArgs.Empty);
     }
 
 
