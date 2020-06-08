@@ -21,6 +21,11 @@ public class PathNode : MonoBehaviour
         this.y = y;
     }
 
+    public void CalculateFcost()
+    {
+        fCost = gCost + hCost;
+    }
+
     public override string ToString()
     {
         return x + "," + y;
